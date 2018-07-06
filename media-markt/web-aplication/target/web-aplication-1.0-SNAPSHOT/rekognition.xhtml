@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="utf-8"/>
+        <script type="text/javascript">
+
+
+
+
+            function draw() {
+
+                var wrapper = document.querySelector('.wrapper');
+
+                var titulo = document.createElement('h1');
+                var texto = document.createTextNode("Texto")
+                titulo.appendChild(texto);
+
+                wrapper.appendChild(titulo);
+
+                var canvas = document.getElementById('icon');
+                if (canvas.getContext) {
+                    var context = canvas.getContext('2d');
+
+                    //circulo
+                    context.fillStyle = "rgba(241, 178, 21, 0.3)";
+                    context.strokeStyle = "blue";
+                    context.beginPath();
+                    context.arc(64, 64, 64, 0, Math.PI * 2, true);
+                    context.closePath();
+                    context.stroke();
+                    context.fill();
+
+
+                    //texto
+                    context.strokeStyle = "rgba(2, 93, 198, 1)";
+                    context.fillStyle = "rgba(2, 93, 198, 0.9)";
+                    context.font = 'italic bold 146px sans-serif';
+                    context.fillText("✪", 3, 117);//aqui ñ encontrei uma fórmula para x,y e o tamanho da fonte
+
+                }
+            }
+        </script>
+    </h:head>
+    <h:body onload="draw();">
+        <h:form >
+            <div style="max-width: 99.99%; position: relative;">
+                <div class="wrapper">Conteúdo</div>
+                <img class="main-image" src="http://localhost:8080/web-aplication/family_thumb.jpg"/>
+                <canvas id="icon" width="128" height="128"/>
+
+                <div class="bounding-boxes">
+
+                    <div class="face-box" style="position: absolute; top: 17.1667%; left: 1.6667%; height: 31.5%; width: 12.8889%; border: 3px solid rgba(255, 255, 255, 0.690196); border-radius: 12%;z-index: 2;">
+
+                    </div>
+
+                    <div class="face-box" style="position: absolute; top: 14.8333%; left: 12.4444%; height: 35.8333%; width: 12.2222%; border: 3px solid rgba(255, 255, 255, 0.690196); border-radius: 12%;z-index: 2;">
+
+                    </div>
+
+                    <div class="face-box" style="position: absolute; top: 10.3333%; left: 22.7778%; height: 40.5%; width: 14%; border: 3px solid rgba(255, 255, 255, 0.690196); border-radius: 12%;z-index: 2;">
+
+                    </div>
+                </div>
+
+                <!--document.getElementById("ItemPreview").src = "data:image/png;base64," + YourByte;-->
+                <!--<img id="ItemPreview" src="" />-->
+
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG4AAAASCAIAAAA12XwWAAAAA3NCSVQICAjb4U/gAAAEWElEQVRY
+                     he1YT2jbZhT/ZQy0krrGOAGFWIoMSQi4awjDFHtohh0CGYRhH9aLm5xCDqHdJaGF+uhCQ33KyGH0
+                     1CSX7GAzfAjLYdRRsSlmFKczM/FoFMnBhtjTXLcwn7yDLFl/7OAVdYPhHz5Iz+/T99773vu9Jw21
+                     Wi0MYAU++q8N+P9gEErLMAilZfjYcH+490WB5+Rr12w6tOgDANTi23MlCd7gS5/HKf9byWd+TPib
+                     YBciR1P6hVoQjvVpGq9yMTuzsxy+XUztHnBL8nVvq4Sn0Ym6zgCd3ACTmg6Z5EY2F1PuKK0L3RQM
+                     T+vsaIqGCEDriC4rDeEo5fzxZKa3wx8KxVRKtv5CiFf60C/l/Icpods/tfg2rQ0TIGYTIxqnzAoo
+                     5fzfb2+Y99UY864hiebNtFkplHlOPTf5rC6EeAU+sg9/5sNH8wAAc95lkht9PEBF7dWvDwB2nME5
+                     HztO3SEDtF6hXQfqw7O5WFlMAcY0zyQflSRRo9/OplLuXnHxaKqj0EnVdqlJsXQypMlNyuZAQ3rR
+                     AEjNSRtg5kqx/PoEgG/x8d1Ia3XtcT9xtBCV/MmFJNqZlc/nNgmgLKb6WWWzT5pktbKwD1DeYEKJ
+                     uzO09tzekcgKmGGfqyVPenxfsjswFgRzzc4A3GlKAHAqPgEwznxr2E+blfQYw9Z5rpTzb+Uww57N
+                     G9Ph38Dp63gTcFMB0jM8+owq8Q8y+a/07MYdRIcONPeEY93fhSvlMmRHdGvp5UibCuQzA1i33s2p
+                     QCDNoS7tn+bvk562kKRWznnu7ZtzYPhtnQdYkvrsnNftp8vK+XDC5aDk6wI3sRWlM/la/1GwAsJJ
+                     Lqa45/z0+kO1Si5BU4r9tLdrEFby53+9pw3DNiUIKq6MTBLAhRD/LX9yIYmE4+YV0zJDB3eG1gSl
+                     NQMQs4ngiKdDTB8aCg3p8s7E1zqulKm5zj8p4rZFdsrprIumzTM9+owqSS/+qN5oAi46ZMPvhmVd
+                     5krS41uNtL4JpgkA4KudxBQb1XfWWNsDMg0Z0JRix90bNABMBQJ2QG8nAJCe6VEHpRKcAuGpUmo9
+                     FNrHSThuuXXM4LxqZwDuF24JwNVr42ZLOqEspna3okPqHEB6xj8xPggFLlxURMcv7zUBwnHT1svL
+                     fwx5hGAXIq27ym+B3cGlzUdJZEbPiQCcY/Qtg82He+E6xGwiWNQpTKizVCWf+ZlbAjBKhwz91k2t
+                     KJdGepXRKXCFbmM/RDtzlno4N+Y2T3l/00T57ut33qPF1/mlreiSVjLDntnefFcH7MyKtk7bVrWb
+                     jywz2oDOKnmibg83vsX7ZWG/JBn1XbOb8haKgljgJgqa14uufcw2MkkAavY0TE5pC5xejlRdGsYl
+                     HOtfK8MQ6fGtRs7surWUN1i1rsv/KY8mY1RAL6fHGPby5tP73ckZWhO8s+saCeUNVjUDo1kBrtl0
+                     1xFQIYQuCStjaPCRzSoMPmdYhkEoLcPfLoonQ9mPrMkAAAAASUVORK5CYII=
+                     "/>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

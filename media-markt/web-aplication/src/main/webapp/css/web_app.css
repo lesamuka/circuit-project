@@ -1,0 +1,11 @@
+/* 
+    Created on : 13/04/2016, 17:53:32
+    Author     : alci
+*/
+
+/*** ESTRUTURA ***/
+@charset "utf-8";
+
+input[type="text"]{ height: 20px; font-size: 12px; margin-top: 0px; margin-right: 5px; }
+.ui-calendar{ font-size: 12px;} 
+

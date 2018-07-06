@@ -1,0 +1,6 @@
+com/appweb/cliente/service/ClienteService.class
+com/appweb/cliente/dao/ClienteDao.class
+com/appweb/cliente/controller/ClienteMb.class
+com/appweb/core/ModoTela.class
+com/appweb/cliente/model/ContatoRealizado.class
+com/appweb/cliente/model/Cliente.class

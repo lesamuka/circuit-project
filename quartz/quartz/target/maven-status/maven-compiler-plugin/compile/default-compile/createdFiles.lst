@@ -1,0 +1,7 @@
+br/exemplo/quartz/job/Tarefa.class
+br/exemplo/quartz/conf/SchedulerBean.class
+br/exemplo/quartz/pojo/EventoAutomaticoPojo.class
+br/exemplo/quartz/conf/AutowiringSpringBeanJobFactory.class
+br/exemplo/quartz/Application.class
+br/exemplo/quartz/job/EventoAutomaticoJob.class
+br/exemplo/quartz/ServletInitializer.class

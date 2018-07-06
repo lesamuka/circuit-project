@@ -1,0 +1,7 @@
+/home/alci/Desenvolvimento/Projeto/Git/circuit-project/hibernate/entity-manager/src/main/java/br/com/fk1/config/MySQLConfig.java
+/home/alci/Desenvolvimento/Projeto/Git/circuit-project/hibernate/entity-manager/src/main/java/br/com/fk1/config/PostgreSQLConfig.java
+/home/alci/Desenvolvimento/Projeto/Git/circuit-project/hibernate/entity-manager/src/main/java/br/com/fk1/config/ConfiguraSpring.java
+/home/alci/Desenvolvimento/Projeto/Git/circuit-project/hibernate/entity-manager/src/main/java/br/com/fk1/config/MainApp.java
+/home/alci/Desenvolvimento/Projeto/Git/circuit-project/hibernate/entity-manager/src/main/java/br/com/fk1/config/DBConfig.java
+/home/alci/Desenvolvimento/Projeto/Git/circuit-project/hibernate/entity-manager/src/main/java/br/com/fk1/salute/util/ViewScope.java
+/home/alci/Desenvolvimento/Projeto/Git/circuit-project/hibernate/entity-manager/src/main/java/br/com/fk1/salute/service/dialect/MyCustomDialect.java

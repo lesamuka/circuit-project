@@ -1,0 +1,5 @@
+br/com/fk1/Json/JsonTest.class
+br/com/fk1/ApplicationTest.class
+br/com/fk1/webservice/EventoAutomaticoWebServiceTest.class
+br/com/fk1/properties/EventoAutomaticoPropertiesTest.class
+br/com/fk1/webservice/SaluteWebServiceTest.class

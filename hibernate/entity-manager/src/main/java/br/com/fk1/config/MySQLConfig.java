@@ -1,0 +1,44 @@
+package br.com.fk1.config;
+
+import javax.sql.DataSource;
+
+import org.apache.commons.dbcp2.BasicDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
+@Configuration
+@PropertySource("classpath:mysql.properties")
+public class MySQLConfig {
+
+    @Autowired
+    private Environment env;
+
+    @Value("${jdbc.driver}")
+    private String jdbcDriver;
+
+    @Value("${jdbc.url}")
+    private String jdbcUrl;
+
+    @Value("${jdbc.username}")
+    private String username;
+
+    @Value("${jdbc.password}")
+    private String password;
+
+    @Bean("mysql")
+    public DataSource getMySQLDataSource() {
+        BasicDataSource dataSource = new BasicDataSource();
+        dataSource.setDefaultReadOnly(Boolean.TRUE);
+        dataSource.setDriverClassName(env.getProperty("jdbc.driver"));
+        dataSource.setUrl(env.getProperty("jdbc.url"));
+        dataSource.setUsername(env.getProperty("jdbc.username"));
+        dataSource.setPassword(env.getProperty("jdbc.password"));
+        return dataSource;
+    }
+
+}

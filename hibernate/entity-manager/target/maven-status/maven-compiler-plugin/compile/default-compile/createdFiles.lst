@@ -1,0 +1,7 @@
+br/com/fk1/salute/util/ViewScope.class
+br/com/fk1/config/MainApp.class
+br/com/fk1/config/PostgreSQLConfig.class
+br/com/fk1/config/MySQLConfig.class
+br/com/fk1/config/ConfiguraSpring.class
+br/com/fk1/config/DBConfig.class
+br/com/fk1/salute/service/dialect/MyCustomDialect.class

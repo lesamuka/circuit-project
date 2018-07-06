@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <link type="text/css" rel="stylesheet" href="/css/app_web.css"/>
+
+    <ui:composition template="/pages/home/templete.xhtml">
+        <ui:define name="body">
+            <h:form >
+                <p:tabView>
+                    <p:tab title="Cliente" rendered="#{clienteMb.modoTela.id == 0}">
+                        <p:dataTable id="dataTableCliente"
+                                     emptyMessage="Não há registros"
+                                     value="#{clienteMb.clienteList}"
+                                     class="table table-condensed"
+                                     var="cliente"
+                                     rowKey="#{cliente.id}"
+                                     style=" width: 500px">
+                            <p:column>
+                                <f:facet name="header">Código</f:facet>
+                                <h:outputText value="#{cliente.id}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">Cliente</f:facet>
+                                <h:outputText value="#{cliente.cliente}"/>
+                            </p:column>
+                            <p:column style="width: 100px; text-align: center">
+                                <p:commandLink value="Editar"
+                                               action="#{clienteMb.visualizar()}"
+                                               process="@this"
+                                               update="@form">
+                                    <f:setPropertyActionListener value="#{cliente}" target="#{clienteMb.cliente}" />
+                                </p:commandLink>
+                            </p:column>
+                        </p:dataTable>
+                    </p:tab>
+                    <p:tab title="Cliente" rendered="#{clienteMb.modoTela.id != 0}">
+                        <h:panelGrid columns="2">
+                            <h:panelGrid>
+                                <h:outputLabel value="Código"/>
+                                <h:inputText value="#{clienteMb.cliente.id}" disabled="true" style="width: 60px"/>
+                            </h:panelGrid>
+                            <h:panelGrid>
+                                <h:outputLabel value="Nome"/>
+                                <h:inputText value="#{clienteMb.cliente.cliente}" disabled="#{clienteMb.modoTela.id == 0 || clienteMb.modoTela.id == 1}" style="width: 380px"/>
+                            </h:panelGrid>
+                        </h:panelGrid>
+                        <h:panelGrid columns="2">
+                            <h:panelGrid>
+                                <h:outputLabel value="Telefone"/>
+                                <h:inputText value="#{clienteMb.cliente.telefone}" disabled="#{clienteMb.modoTela.id == 0 || clienteMb.modoTela.id == 1}" style="width: 140px"/>
+                            </h:panelGrid>
+                            <h:panelGrid>
+                                <h:outputLabel value="E-mail"/>
+                                <h:inputText value="#{clienteMb.cliente.email}" disabled="#{clienteMb.modoTela.id == 0 || clienteMb.modoTela.id == 1}" style="width: 300px"/>
+                            </h:panelGrid>
+                        </h:panelGrid>
+                        <h:panelGrid>
+                            <h:outputLabel value="Endereço"/>
+                            <h:inputText value="#{clienteMb.cliente.endereco}" disabled="#{clienteMb.modoTela.id == 0 || clienteMb.modoTela.id == 1}" style="width: 445px"/>
+                        </h:panelGrid>
+                        <div class="ui-widget-content" style="margin-top: 5px; margin-bottom: 10px"/>
+                        <h:panelGrid columns="3"  >
+                            <h:panelGrid >
+                                <h:outputLabel value="Data Hora"/>
+                                <p:calendar value="#{clienteMb.contatoRealizado.date}" disabled="#{clienteMb.modoTela.id == 0 || clienteMb.modoTela.id == 1}" pattern="dd/MM/yyyy HH:mm:ss" size="15"/>
+                            </h:panelGrid>
+                            <h:panelGrid>
+                                <h:outputLabel value="Descrição"/>
+                                <h:inputText value="#{clienteMb.contatoRealizado.descricao}" disabled="#{clienteMb.modoTela.id == 0 || clienteMb.modoTela.id == 1}" style="width: 220px"/>
+                            </h:panelGrid>
+                            <h:commandButton value="Adicionar"  
+                                             action="#{clienteMb.adicionar()}"
+                                             class="btn btn-success" />
+                        </h:panelGrid>
+                        <br/>
+                        <p:dataTable 
+                            value="#{clienteMb.cliente.contatoRealizadoList}"
+                            class="table table-condensed"
+                            emptyMessage="Não há registros"
+                            var="contatoRealizado"
+                            rowKey="#{contatoRealizado.id}"
+                            style=" width: 500px">
+                            <p:column>
+                                <f:facet name="header">Data</f:facet>
+                                <h:outputText value="#{contatoRealizado.date}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy HH:mm" type="date" dateStyle="short" />
+                                </h:outputText>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">Descrição</f:facet>
+                                <h:outputText value="#{contatoRealizado.descricao}"/>
+                            </p:column>
+                            <p:column style="width: 100px; text-align: center">
+                                <p:commandLink value="Editar"
+                                               process="@this">
+                                    <f:setPropertyActionListener value="#{contatoRealizado}" target="#{clienteMb.contatoRealizado}" />
+                                </p:commandLink>
+                            </p:column>
+                        </p:dataTable>
+                    </p:tab>
+                </p:tabView>
+                <h:panelGrid columns="5">
+                    <h:commandButton value="Inserir" 
+                                     action="#{clienteMb.inserir()}"
+                                     rendered="#{clienteMb.modoTela.id == 0 || clienteMb.modoTela.id == 1}"
+                                     class="btn btn-primary" />
+                    <h:commandButton value="Salvar" 
+                                     action="#{clienteMb.salvar()}" 
+                                     rendered="#{clienteMb.modoTela.id == 2 || clienteMb.modoTela.id == 3}"
+                                     class="btn btn-success" />
+                    <h:commandButton value="Alterar" 
+                                     action="#{clienteMb.alterar()}"
+                                     rendered="#{clienteMb.modoTela.id == 1}"
+                                     class="btn btn-warning" />
+                    <h:commandButton value="Cancelar" 
+                                     action="#{clienteMb.cancelar()}"
+                                     class="btn btn-info" />
+                    <h:commandButton value="Excluir"
+                                     action="#{clienteMb.excluir()}"
+                                     rendered="#{clienteMb.modoTela.id == 1}"
+                                     class="btn btn-danger" />
+                </h:panelGrid>
+            </h:form>
+        </ui:define>
+    </ui:composition>    
+</html>
+

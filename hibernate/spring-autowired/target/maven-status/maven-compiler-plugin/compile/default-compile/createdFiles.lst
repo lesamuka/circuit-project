@@ -1,0 +1,3 @@
+br/com/autowired/Application.class
+br/com/autowired/ServletInitializer.class
+br/com/autowired/confiration/EventoAutomaticoProperties.class

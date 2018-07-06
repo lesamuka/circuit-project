@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition template="/WEB-INF/templete.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml" 
+                xmlns:ui="http://java.sun.com/jsf/facelets" 
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core" 
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="head">
+        <h:outputScript library="javaScript" name="jquery.maskMoney.js"/>
+        <h:outputScript library="javaScript" name="primeFaces.config.js"/>
+        <script>
+            $(document).ready(function () {
+                $(".moeda").maskMoney({decimal: ",", thousands: ".", allowZero: true});
+            });
+        </script>
+    </ui:define>
+
+    <ui:define name="header">
+        <h:form>
+            <nav class="navbar navbar-default">
+                <div>
+                    <div id="navbar" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-header">
+                            <li><a href="#{request.getContextPath()}/pages/cadastro/pesquisa-cliente.xhtml" >Pesquisa</a></li>
+                            <li><a href="#{request.getContextPath()}/pages/cadastro/fornecedor.xhtml" >Fornecedor</a></li>
+                            <li><a href="#{request.getContextPath()}/pages/configuracao/registro-cliente.xhtml" >Cliente</a></li>
+                            <li><a href="#{request.getContextPath()}/pages/configuracao/perfilUsuario.xhtml" >Perfil</a></li>
+                            <li><a href="#{request.getContextPath()}/pages/configuracao/operador.xhtml" >Operador</a></li>
+                            <li><a href="#{request.getContextPath()}/pages/configuracao/jsf-managed-bean.xhtml" >JSF Bean</a></li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <p:commandLink action="#{request.getContextPath()}" 
+                                           value="Sair" 
+                                           class="btn btn-default"
+                                           immediate="true"/>
+                        </ul>
+                    </div>
+                </div>
+            </nav>	
+        </h:form>
+    </ui:define>
+</ui:composition>
+

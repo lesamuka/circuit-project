@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/pages/home/templete.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets" 
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+   
+    <ui:define name="body">
+        <h:form id="formEdicao">
+            <p:messages />
+
+            <h:panelGrid>
+                <h:panelGrid>
+                    <p:outputLabel value="Nome"/>
+                    <p:inputText id="inputText" 
+                                 value="#{perfilUsuarioBean.perfil.descricao}"
+                                 requiredMessage="Informe a descrição"/>
+                </h:panelGrid>
+
+                <h:panelGrid>
+                    <p:outputLabel value="Data de nascimento" for="dataNascimento" />
+                    <p:calendar id="dataNascimento" required="true" value="#{perfilUsuarioBean.perfil.data}" 
+                                pattern="dd/MM/yyyy" readonlyInput="true" navigator="false"
+                                pages="1" mode="popup"
+                                locale="pt_BR" />
+                </h:panelGrid>
+            </h:panelGrid>
+
+            <p:commandButton value="Atualizar" action="#{perfilUsuarioBean.atualizar()}" update="@form"/>
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+
