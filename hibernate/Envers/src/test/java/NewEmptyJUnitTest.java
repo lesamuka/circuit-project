@@ -1,8 +1,10 @@
 
 import br.core.util.ConexaoFactory;
-import br.hibernate.exemplo.model.Auditoria;
+import br.hibernate.exemplo.model.Pessoa;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -34,14 +36,15 @@ public class NewEmptyJUnitTest {
 
     @Test
     public void hello() {
-        EntityManager em = ConexaoFactory.getEntityManagerMysql();
         {
-            Auditoria pessoa = new Auditoria();
+            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HibernateDB");
+            EntityManager em = entityManagerFactory.createEntityManager();
+            Pessoa pessoa = new Pessoa();
             pessoa.setNome("AAAAAAAAAA");
             em.getTransaction().begin();
             em.persist(pessoa);
             em.getTransaction().commit();
-            List<Auditoria> resultList = em.createQuery("select u from Pessoa u ", Auditoria.class).getResultList();
+            List<Pessoa> resultList = em.createQuery("select u from Pessoa u ", Pessoa.class).getResultList();
         }
 
         System.out.println("NovoEmptyJUnitTest.hello()");
